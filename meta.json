@@ -1,0 +1,11 @@
+{
+  "name": "Outstanding tasks",
+  "summary": "Finds TODO/FIXME/XXX/HACK markers and can fail once they exceed a budget.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "task-scanner"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-task-scanner"
+}

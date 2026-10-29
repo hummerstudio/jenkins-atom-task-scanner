@@ -1,0 +1,72 @@
+{
+  "atomCode": "task-scanner",
+  "name": "Outstanding tasks",
+  "version": "1.0.0",
+  "description": "Finds TODO/FIXME/XXX/HACK markers and can fail once they exceed a budget.",
+  "execution": {
+    "packagePath": "task-scanner.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp task-scanner.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "includes": {
+      "label": "扫描哪些文件（glob）",
+      "type": "vuex-input",
+      "default": "**/*.java, **/*.kt, **/*.js, **/*.ts, **/*.py, **/*.go, **/*.rs, **/*.c, **/*.cpp, **/*.h, **/*.sh, **/*.rb, **/*.php, **/*.cs"
+    },
+    "excludes": {
+      "label": "排除（glob）",
+      "type": "vuex-input",
+      "default": "**/target/**, **/build/**, **/node_modules/**, **/.git/**, **/dist/**, **/out/**"
+    },
+    "markers": {
+      "label": "标记词（逗号分隔）",
+      "type": "vuex-input",
+      "default": "TODO, FIXME, XXX, HACK"
+    },
+    "label": {
+      "label": "报告名称",
+      "type": "vuex-input",
+      "default": "Outstanding tasks"
+    },
+    "outputDir": {
+      "label": "HTML 输出目录",
+      "type": "vuex-input",
+      "default": "out/tasks"
+    },
+    "maxMarkers": {
+      "label": "标记上限（-1 = 不检查）",
+      "type": "vuex-input-number",
+      "default": "-1"
+    }
+  },
+  "output": {
+    "markers": {
+      "type": "string",
+      "description": "标记数"
+    },
+    "files": {
+      "type": "string",
+      "description": "扫描的文件数"
+    },
+    "todo": {
+      "type": "string",
+      "description": "TODO 数"
+    },
+    "fixme": {
+      "type": "string",
+      "description": "FIXME 数"
+    },
+    "report": {
+      "type": "report",
+      "description": "构建页内嵌报告"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    },
+    "context": []
+  }
+}
