@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: task-scanner-atom
-          path: atom/dist/task-scanner/
+          path: atom/target/dist/task-scanner/
